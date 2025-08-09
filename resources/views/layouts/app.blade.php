@@ -15,11 +15,11 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div x-data="{ open: false }" class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="ml-72">
+            <main class=" pt-12 transition-all ease-in-out" :class="{'ml-0' : open, 'ml-72' : !open}">
                 {{ $slot }}
             </main>
         </div>
